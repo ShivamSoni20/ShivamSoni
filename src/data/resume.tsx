@@ -11,7 +11,7 @@ export const DATA = {
     "Full Stack Developer passionate about software development, web technologies, and problem-solving. I specialize in Core & Advanced Java, JSP, JDBC, MVC Architecture, and have experience building responsive, user-friendly interfaces. I'm very active on Twitter and love connecting with other tech enthusiasts.",
   summary:
     "I'm a developer who loves turning ideas into high-quality, scalable applications. My expertise spans Core Java, Advanced Java, JSP, JDBC, MVC, and integrating databases with efficient backend logic. On the frontend, I work with HTML, CSS, JavaScript, and Bootstrap to create responsive, high-performance web experiences. Git, version control, MySQL, file handling, multithreading, collections framework, and exception handling are part of my daily toolkit. Always curious, I explore new technologies to continuously enhance my projects and problem-solving abilities.",
-  avatarUrl: "/me.png",
+  avatarUrl: "/shivam.jpeg",
   skills: [
     "Core Java",
     "Advanced Java",
