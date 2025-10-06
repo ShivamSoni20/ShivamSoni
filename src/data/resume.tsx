@@ -8,85 +8,89 @@ export const DATA = {
   location: "India",
   locationLink: "https://www.google.com/maps/place/india",
   description:
-    "Full Stack Developer passionate about software development, web technologies, and problem-solving. I specialize in Core & Advanced Java, JSP, JDBC, MVC Architecture, and have experience building responsive, user-friendly interfaces. I'm very active on Twitter and love connecting with other tech enthusiasts.",
+    "Aspiring Software Developer with a strong foundation in Java, web technologies, and modern frameworks. Passionate about software development and web technologies, and skilled in problem-solving and team collaboration.",
   summary:
-    "I'm a developer who loves turning ideas into high-quality, scalable applications. My expertise spans Core Java, Advanced Java, JSP, JDBC, MVC, and integrating databases with efficient backend logic. On the frontend, I work with HTML, CSS, JavaScript, and Bootstrap to create responsive, high-performance web experiences. Git, version control, MySQL, file handling, multithreading, collections framework, and exception handling are part of my daily toolkit. Always curious, I explore new technologies to continuously enhance my projects and problem-solving abilities.",
+    "I'm a passionate developer with expertise in full-stack development, specializing in Java, JavaScript, and modern web frameworks. I have hands-on experience building scalable web applications, e-commerce platforms, and AI-powered tools. My technical skills include Core & Advanced Java, Spring Boot, React, Next.js, TypeScript, and database management with MySQL and MongoDB. I'm proficient in building RESTful APIs, implementing secure authentication, and creating responsive user interfaces. Always eager to learn and explore new technologies to solve real-world problems.",
   avatarUrl: "/shivam.jpeg",
   skills: [
-    "Core Java",
-    "Advanced Java",
+    "Java",
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Node.js",
+    "Spring Boot",
+    "HTML",
+    "CSS",
+    "Tailwind CSS",
+    "Bootstrap",
+    "MySQL",
+    "MongoDB",
+    "Git",
+    "RESTful APIs",
+    "Servlets",
     "JSP",
     "JDBC",
     "MVC Architecture",
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "Bootstrap",
-    "MySQL",
-    "Git",
-    "Version Control",
-    "File Handling",
-    "Multithreading",
-    "Exception Handling",
-    "Collections Framework",
+    "Blockchain",
+    "Web3",
+    "Solidity",
+    "Smart Contracts",
+    "Prisma ORM",
+    "Redux",
+    "JWT",
+    "OAuth",
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "/blog", icon: NotebookIcon, label: "Blog" },
   ],
   contact: {
-    email: "hello@example.com",
-    tel: "+123456789",
+    email: "ss28022802@gmail.com",
+    tel: "+91 7987054345",
     social: {
       GitHub: {
         name: "GitHub",
-        url: "https://dub.sh/dillion-github",
+        url: "https://github.com/ShivamSoni20",
         icon: Icons.github,
 
         navbar: true,
       },
       LinkedIn: {
         name: "LinkedIn",
-        url: "https://dub.sh/dillion-linkedin",
+        url: "https://www.linkedin.com/in/shivamsoni28",
         icon: Icons.linkedin,
 
         navbar: true,
       },
       X: {
         name: "X",
-        url: "https://dub.sh/dillion-twitter",
+        url: "https://x.com/shivam_soni18",
         icon: Icons.x,
 
         navbar: true,
       },
-      Youtube: {
-        name: "Youtube",
-        url: "https://dub.sh/dillion-youtube",
-        icon: Icons.youtube,
-        navbar: true,
-      },
       email: {
         name: "Send Email",
-        url: "#",
+        url: "mailto:ss28022802@gmail.com",
         icon: Icons.email,
 
-        navbar: false,
+        navbar: true,
       },
     },
   },
 
   work: [
     {
-      company: "Web Application Developer",
+      company: "Freelance",
       href: "#",
       badges: [],
-      location: "India",
-      title: "Web Application Developer",
+      location: "Remote",
+      title: "Full Stack Developer",
       logoUrl: "/developer.png",
-      start: "2023",
+      start: "July 2024",
       end: "Present",
       description:
-        "I have hands-on experience designing and developing responsive web applications, from front-end interfaces to robust back-end systems. My work includes creating dynamic websites, e-commerce platforms, and interactive features using Core & Advanced Java, JSP, JDBC, and MVC architecture. I've integrated MySQL databases for efficient data handling, implemented secure authentication systems, and optimized applications for performance and scalability. Every project I build reflects my focus on clean code, smooth user experience, and continuous improvement.",
+        "Developing and maintaining web applications using modern technologies. Built responsive e-commerce platforms with secure authentication, shopping cart functionality, and admin dashboards. Created AI-powered NFT analytics tools using Next.js, TypeScript, and blockchain APIs. Implemented RESTful APIs, database integrations, and optimized application performance for scalability and user experience.",
     },
   ],
   education: [
@@ -119,10 +123,10 @@ export const DATA = {
     {
       title: "CrunchGPT",
       href: "https://crunch-gpt.vercel.app/",
-      dates: "2025",
+      dates: "Jan 2025",
       active: true,
       description:
-        "AI-powered NFT analytics platform for real-time insights, trends, and risk analysis. Features marketplace analytics, holder tracking, washtrade detection, and wallet analytics powered by bitsCrunch APIs.",
+        "AI-powered NFT analytics platform providing real-time insights, trends, and risk analysis. Features marketplace analytics, holder tracking, washtrade detection, and wallet analytics powered by bitsCrunch APIs and blockchain data.",
       technologies: [
         "Next.js",
         "TypeScript",
@@ -130,6 +134,7 @@ export const DATA = {
         "bitsCrunch APIs",
         "UnleashNFTs API",
         "Privy Auth",
+        "Web3",
       ],
       links: [
         {
@@ -147,15 +152,41 @@ export const DATA = {
       video: "",
     },
     {
-      title: "Responsive E-commerce Website",
-      href: "https://github.com/ShivamSoni20/E-Commerce-Site",
-      dates: "2024",
+      title: "CodeGenie",
+      href: "https://github.com/ShivamSoni20/CodeGenie",
+      dates: "Feb 2025",
       active: true,
       description:
-        "Full-featured e-commerce platform with secure login/registration, product catalog, shopping cart, admin panel, and password hashing for enhanced security.",
+        "AI-powered code generation platform that helps developers write better code faster. Features intelligent code suggestions, automated documentation, and real-time code analysis.",
       technologies: [
-        "Java Servlets",
+        "Next.js",
+        "TypeScript",
+        "OpenAI API",
+        "Tailwind CSS",
+        "Prisma",
+        "PostgreSQL",
+      ],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/ShivamSoni20/CodeGenie",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "",
+    },
+    {
+      title: "Responsive E-commerce Website",
+      href: "https://github.com/ShivamSoni20/E-Commerce-Site",
+      dates: "Aug 2024 - Sept 2024",
+      active: true,
+      description:
+        "Built an AI-powered platform to generate smart contracts using AI. Allows users to create, deploy, and manage smart contracts with natural language. Integrated wallet connectivity, contract validation, and secure deployment to blockchain networks.",
+      technologies: [
+        "Java",
         "JSP",
+        "Servlets",
         "HTML",
         "CSS",
         "JavaScript",
@@ -215,6 +246,26 @@ export const DATA = {
           title: "GitHub",
           icon: <Icons.github className="h-4 w-4" />,
           href: "https://github.com/ShivamSoni20/CrunchGPT",
+        },
+      ],
+    },
+    {
+      title: "Somnia DeFi Mini Hackathon (CodeGenie)",
+      dates: "Feb 2025",
+      location: "Remote",
+      description:
+        "Built CodeGenie - An AI-powered code generation platform that helps developers write better code faster. Features intelligent code suggestions, automated documentation, and real-time code analysis using advanced AI models.",
+      image: "",
+      links: [
+        {
+          title: "Live Demo",
+          icon: <Icons.globe className="h-4 w-4" />,
+          href: "https://github.com/ShivamSoni20/CodeGenie",
+        },
+        {
+          title: "GitHub",
+          icon: <Icons.github className="h-4 w-4" />,
+          href: "https://github.com/ShivamSoni20/CodeGenie",
         },
       ],
     },

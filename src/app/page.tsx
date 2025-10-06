@@ -5,6 +5,7 @@ import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
@@ -216,6 +217,18 @@ export default function Page() {
                 and I&apos;ll respond whenever I can. I will ignore all
                 soliciting.
               </p>
+              <div className="flex gap-4 justify-center mt-4">
+                <Button asChild>
+                  <Link href={`mailto:${DATA.contact.email}`}>
+                    Email Me
+                  </Link>
+                </Button>
+                <Button asChild variant="outline">
+                  <Link href={DATA.contact.social.LinkedIn.url} target="_blank">
+                    Connect on LinkedIn
+                  </Link>
+                </Button>
+              </div>
             </div>
           </BlurFade>
         </div>
