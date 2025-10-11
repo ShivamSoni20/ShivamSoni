@@ -270,4 +270,29 @@ export const DATA = {
       ],
     },
   ],
+  openSourceContributions: [
+    {
+      title: "Hacktoberfest 2025",
+      description: "Active participant in Hacktoberfest, contributing to open source projects and collaborating with the developer community.",
+      contributions: [
+        "Contributed to HealthAI-Assistant - An AI-powered health assistant application",
+        "Submitted pull requests with bug fixes and feature enhancements",
+        "Improved documentation and added examples to help other developers",
+        "Collaborated with maintainers to review and improve code quality"
+      ],
+      year: 2025,
+      links: [
+        {
+          type: "Project",
+          href: "https://github.com/NikhilRaikwar/HealthAI-Assistant",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "GitHub Profile",
+          href: "https://github.com/ShivamSoni20",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+    },
+  ],
 } as const;
