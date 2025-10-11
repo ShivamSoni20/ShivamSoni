@@ -6,6 +6,7 @@ import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Collapsible } from "@/components/ui/collapsible";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
@@ -171,53 +172,52 @@ export default function Page() {
             </div>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 14}>
-            <ul className="mb-4 ml-4 divide-y divide-dashed border-l max-w-[800px] mx-auto">
+            <div className="max-w-[800px] mx-auto space-y-4">
               {DATA.openSourceContributions.map((contribution, id) => (
                 <BlurFade
                   key={contribution.title}
                   delay={BLUR_FADE_DELAY * 15 + id * 0.05}
                 >
-                  <li className="relative ml-10 py-4">
-                    <div className="flex flex-1 flex-col justify-start gap-1">
-                      {contribution.year && (
-                        <time className="text-xs text-muted-foreground">
-                          {contribution.year}
-                        </time>
-                      )}
-                      <h3 className="font-semibold leading-none">
-                        {contribution.title}
-                      </h3>
-                      {contribution.description && (
-                        <p className="text-sm text-muted-foreground">
-                          {contribution.description}
-                        </p>
-                      )}
+                  <Collapsible
+                    title={contribution.title}
+                    year={contribution.year}
+                    description={contribution.description}
+                    defaultOpen={false}
+                  >
+                    <div className="space-y-4">
                       {contribution.contributions && (
-                        <ul className="mt-2 space-y-1">
-                          {contribution.contributions.map((item, idx) => (
-                            <li key={idx} className="text-sm text-muted-foreground">
-                              • {item}
-                            </li>
-                          ))}
-                        </ul>
+                        <div>
+                          <h4 className="font-semibold mb-2">Contributions:</h4>
+                          <ul className="space-y-2">
+                            {contribution.contributions.map((item, idx) => (
+                              <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
+                                <span className="mt-1">•</span>
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       )}
                       {contribution.links && contribution.links.length > 0 && (
-                        <div className="mt-2 flex flex-row flex-wrap items-start gap-2">
-                          {contribution.links.map((link, idx) => (
-                            <Link href={link.href} key={idx} target="_blank">
-                              <Badge className="flex gap-2">
-                                {link.icon}
-                                {link.type}
-                              </Badge>
-                            </Link>
-                          ))}
+                        <div>
+                          <h4 className="font-semibold mb-2">Links:</h4>
+                          <div className="flex flex-row flex-wrap items-start gap-2">
+                            {contribution.links.map((link, idx) => (
+                              <Link href={link.href} key={idx} target="_blank">
+                                <Badge className="flex gap-2 hover:bg-primary/80 transition-colors">
+                                  {link.icon}
+                                  {link.type}
+                                </Badge>
+                              </Link>
+                            ))}
+                          </div>
                         </div>
                       )}
                     </div>
-                  </li>
+                  </Collapsible>
                 </BlurFade>
               ))}
-            </ul>
+            </div>
           </BlurFade>
         </div>
       </section>
