@@ -276,15 +276,48 @@ export const DATA = {
       description: "Active participant in Hacktoberfest, contributing to open source projects and collaborating with the developer community.",
       contributions: [
         "Contributed to HealthAI-Assistant - An AI-powered health assistant application",
-        "Submitted pull requests with bug fixes and feature enhancements",
-        "Improved documentation and added examples to help other developers",
-        "Collaborated with maintainers to review and improve code quality"
+        "✨ Inline Message Editing & Cancel Streaming - Enhanced chat functionality with inline editing and streaming cancellation (PR #49)",
+        "✨ Animated Theme Toggler - Implemented elegant theme toggler with circular reveal transition animation (PR #47)",
+        "🎤 Voice Input Feature - Integrated voice input with pulse animation and real-time speech-to-text transcription (PR #45)",
+        "🎨 Symptom Analyzer UI/UX Redesign - Complete redesign with voice input and full responsiveness (PR #43)",
+        "🔒 Image Validation for Medicine Analyzer - Added robust validation to prevent non-medical image uploads (PR #35)",
+        "✨ Healthcare Chat Redesign - Comprehensive redesign with streaming support and responsive design (PR #14)"
       ],
       year: 2025,
       links: [
         {
           type: "Project",
           href: "https://github.com/NikhilRaikwar/HealthAI-Assistant",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "PR #49",
+          href: "https://github.com/NikhilRaikwar/HealthAI-Assistant/pull/49",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "PR #47",
+          href: "https://github.com/NikhilRaikwar/HealthAI-Assistant/pull/47",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "PR #45",
+          href: "https://github.com/NikhilRaikwar/HealthAI-Assistant/pull/45",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "PR #43",
+          href: "https://github.com/NikhilRaikwar/HealthAI-Assistant/pull/43",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "PR #35",
+          href: "https://github.com/NikhilRaikwar/HealthAI-Assistant/pull/35",
+          icon: <Icons.github className="size-3" />,
+        },
+        {
+          type: "PR #14",
+          href: "https://github.com/NikhilRaikwar/HealthAI-Assistant/pull/14",
           icon: <Icons.github className="size-3" />,
         },
         {
