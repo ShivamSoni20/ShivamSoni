@@ -285,12 +285,10 @@ export default function Page() {
                 and I&apos;ll respond whenever I can. I will ignore all
                 soliciting.
               </p>
-              <div className="flex gap-4 justify-center mt-4">
-                <Button asChild>
-                  <Link href={`mailto:${DATA.contact.email}`}>
-                    Email Me
-                  </Link>
-                </Button>
+              <div className="flex gap-4 justify-center mt-4 flex-col items-center">
+                <p className="text-lg font-medium">
+                  Email me on {DATA.contact.email}
+                </p>
                 <Button asChild variant="outline">
                   <Link href={DATA.contact.social.LinkedIn.url} target="_blank">
                     Connect on LinkedIn
