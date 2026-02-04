@@ -3,6 +3,7 @@
 # 👋 Hey there, I'm Shivam Soni!
 
 ### 🚀 Full Stack Developer | Web3 Enthusiast | AI Explorer
+*Powered by a custom premium design system featuring Cinzel typography & Obsidian aesthetics.*
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=2E9EF7&center=true&vCenter=true&width=435&lines=Building+the+decentralized+future;AI-powered+Web3+applications;Passionate+about+blockchain+%26+NFTs)](https://git.io/typing-svg)
 
