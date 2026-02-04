@@ -4,10 +4,15 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
+import { Cinzel, Manrope } from "next/font/google";
 import "./globals.css";
 
-const fontSans = FontSans({
+const fontHeading = Cinzel({
+  subsets: ["latin"],
+  variable: "--font-heading",
+});
+
+const fontBody = Manrope({
   subsets: ["latin"],
   variable: "--font-sans",
 });
@@ -58,7 +63,8 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6",
-          fontSans.variable
+          fontHeading.variable,
+          fontBody.variable
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="light">
