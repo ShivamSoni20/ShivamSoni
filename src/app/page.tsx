@@ -1,22 +1,33 @@
+"use client";
+
+import { AnimatedGradient } from "@/components/animated-gradient";
 import { HackathonCard } from "@/components/hackathon-card";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
+import { ScrollIndicator } from "@/components/scroll-indicator";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Collapsible } from "@/components/ui/collapsible";
 import { DATA } from "@/data/resume";
+import { useMagnetic } from "@/hooks/use-magnetic";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import Markdown from "react-markdown";
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
+  const [magneticRef, magneticPosition] = useMagnetic(0.2);
+
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
-      <section id="hero">
+      <section id="hero" className="relative">
+        {/* Animated gradient background */}
+        <AnimatedGradient className="absolute inset-0 -z-10 opacity-20 blur-3xl" />
+
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
             <div className="flex-col flex flex-1 space-y-1.5">
@@ -33,13 +44,25 @@ export default function Page() {
               />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
-              <Avatar className="size-28 border ring-4 ring-primary/10 bg-accent/50 filter backdrop-blur-sm">
-                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
-                <AvatarFallback>{DATA.initials}</AvatarFallback>
-              </Avatar>
+              <motion.div
+                ref={magneticRef}
+                style={{
+                  x: magneticPosition.x,
+                  y: magneticPosition.y,
+                }}
+                transition={{ type: "spring", stiffness: 150, damping: 15 }}
+              >
+                <Avatar className="size-28 border ring-4 ring-primary/10 bg-accent/50 filter backdrop-blur-sm hover:ring-primary/30 transition-all duration-300 hover:scale-105">
+                  <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
+                  <AvatarFallback>{DATA.initials}</AvatarFallback>
+                </Avatar>
+              </motion.div>
             </BlurFade>
           </div>
         </div>
+
+        {/* Scroll indicator */}
+        <ScrollIndicator />
       </section>
       <section id="about">
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
