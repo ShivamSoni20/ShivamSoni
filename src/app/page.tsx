@@ -7,6 +7,8 @@ import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { ScrollIndicator } from "@/components/scroll-indicator";
+import { ScrollProgressBar } from "@/components/scroll-progress-bar";
+import { SectionDivider } from "@/components/section-divider";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
