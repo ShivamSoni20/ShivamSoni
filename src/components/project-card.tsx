@@ -1,15 +1,9 @@
 "use client";
 
 import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
@@ -48,27 +42,25 @@ export function ProjectCard({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      whileHover={{ y: -8 }}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className={cn("group", className)}
     >
-      <Card
-        className={cn(
-          "group relative flex flex-col overflow-hidden border h-full",
-          "bg-card/60 backdrop-blur-md",
-          "transition-all duration-500 ease-out-expo",
-          "hover:shadow-glow hover:border-primary/50",
-          className
-        )}
-      >
-        <Link
-          href={href || "#"}
-          className="block cursor-pointer overflow-hidden"
+      <Link href={href || "#"} className="block">
+        <motion.div
+          className={cn(
+            "relative overflow-hidden rounded-2xl bg-card",
+            "border border-border/50",
+            "transition-all duration-500 ease-out"
+          )}
+          whileHover={{ y: -4 }}
+          onHoverStart={() => setIsHovered(true)}
+          onHoverEnd={() => setIsHovered(false)}
         >
-          <div className="relative overflow-hidden h-40">
+          {/* Image/Video Container */}
+          <div className="relative overflow-hidden aspect-video bg-muted">
             {video && (
               <motion.video
                 src={video}
@@ -76,112 +68,108 @@ export function ProjectCard({
                 loop
                 muted
                 playsInline
-                className="pointer-events-none w-full h-full object-cover object-top"
-                animate={isHovered ? { scale: 1.05 } : { scale: 1 }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                className="pointer-events-none w-full h-full object-cover"
+                animate={isHovered ? { scale: 1.03 } : { scale: 1 }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               />
             )}
-            {image && (
+            {image && !video && (
               <motion.div
                 className="w-full h-full"
-                animate={isHovered ? { scale: 1.05 } : { scale: 1 }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                animate={isHovered ? { scale: 1.03 } : { scale: 1 }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               >
                 <Image
                   src={image}
                   alt={title}
-                  width={500}
-                  height={300}
-                  className="w-full h-full object-cover object-top"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </motion.div>
             )}
-            {/* Gradient overlay on hover */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"
-              initial={{ opacity: 0 }}
-              animate={isHovered ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            />
           </div>
-        </Link>
 
-        <CardHeader className="px-2">
-          <div className="space-y-1">
-            <CardTitle className="mt-1 text-base group-hover:text-primary transition-colors duration-300">
-              {title}
-            </CardTitle>
-            <time className="font-sans text-xs text-muted-foreground">
-              {dates}
-            </time>
-            <div className="hidden font-sans text-xs underline print:visible">
-              {link?.replace("https://", "").replace("www.", "").replace("/", "")}
+          {/* Content */}
+          <div className="p-6 space-y-3">
+            {/* Title and Date */}
+            <div className="space-y-1">
+              <h3 className="text-xl font-semibold tracking-tight group-hover:text-primary transition-colors duration-300">
+                {title}
+              </h3>
+              <time className="text-sm text-muted-foreground">{dates}</time>
             </div>
-            <Markdown className="prose max-w-full text-pretty font-sans text-xs text-muted-foreground dark:prose-invert">
+
+            {/* Description */}
+            <Markdown className="prose prose-sm max-w-full text-muted-foreground dark:prose-invert line-clamp-3">
               {description}
             </Markdown>
-          </div>
-        </CardHeader>
 
-        <CardContent className="mt-auto flex flex-col px-2">
-          {tags && tags.length > 0 && (
-            <motion.div
-              className="mt-2 flex flex-wrap gap-1"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              {tags?.map((tag, index) => (
-                <motion.div
-                  key={tag}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.1 * index, duration: 0.3 }}
-                >
+            {/* Tags */}
+            {tags && tags.length > 0 && (
+              <div className="flex flex-wrap gap-2 pt-2">
+                {tags.slice(0, 4).map((tag) => (
                   <Badge
-                    className="px-1 py-0 text-[10px] hover:scale-105 transition-transform duration-200"
+                    key={tag}
                     variant="secondary"
+                    className="text-xs font-normal px-2.5 py-0.5 rounded-full"
                   >
                     {tag}
                   </Badge>
-                </motion.div>
-              ))}
-            </motion.div>
-          )}
-        </CardContent>
-
-        <CardFooter className="px-2 pb-2">
-          {links && links.length > 0 && (
-            <div className="flex flex-row flex-wrap items-start gap-1">
-              {links?.map((link, idx) => (
-                <Link href={link?.href} key={idx} target="_blank">
+                ))}
+                {tags.length > 4 && (
                   <Badge
-                    className="flex gap-2 px-2 py-1 text-[10px] hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-glow-sm"
+                    variant="secondary"
+                    className="text-xs font-normal px-2.5 py-0.5 rounded-full"
+                  >
+                    +{tags.length - 4}
+                  </Badge>
+                )}
+              </div>
+            )}
+
+            {/* Links */}
+            {links && links.length > 0 && (
+              <div className="flex items-center gap-4 pt-2 border-t border-border/50">
+                {links.map((link, idx) => (
+                  <Link
+                    href={link.href}
+                    key={idx}
+                    target="_blank"
+                    className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     {link.icon}
-                    {link.type}
-                  </Badge>
-                </Link>
-              ))}
-            </div>
-          )}
-        </CardFooter>
+                    <span>{link.type}</span>
+                  </Link>
+                ))}
+              </div>
+            )}
 
-        {/* Glow effect on hover */}
-        <motion.div
-          className="absolute inset-0 pointer-events-none rounded-lg"
-          initial={{ opacity: 0 }}
-          animate={
-            isHovered
-              ? {
-                opacity: 1,
-                boxShadow: "0 0 30px rgba(139, 92, 246, 0.2)",
-              }
-              : { opacity: 0 }
-          }
-          transition={{ duration: 0.3 }}
-        />
-      </Card>
+            {/* Learn More CTA */}
+            <motion.div
+              className="flex items-center gap-1 text-sm font-medium text-primary pt-2"
+              animate={isHovered ? { x: 4 } : { x: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <span>Learn more</span>
+              <ArrowRight className="w-4 h-4" />
+            </motion.div>
+          </div>
+
+          {/* Subtle shadow on hover */}
+          <motion.div
+            className="absolute inset-0 pointer-events-none rounded-2xl"
+            initial={false}
+            animate={
+              isHovered
+                ? { boxShadow: "0 8px 24px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.1)" }
+                : { boxShadow: "0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06)" }
+            }
+            transition={{ duration: 0.3 }}
+          />
+        </motion.div>
+      </Link>
     </motion.div>
   );
 }
