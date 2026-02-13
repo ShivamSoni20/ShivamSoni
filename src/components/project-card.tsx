@@ -136,6 +136,7 @@ export function ProjectCard({
                     href={link.href}
                     key={idx}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
                     onClick={(e) => e.stopPropagation()}
                   >
