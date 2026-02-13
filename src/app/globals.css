@@ -4,27 +4,36 @@
 
 @layer base {
   :root {
-    /* Light Mode: Warm Paper & Ink */
-    --background: 35 30% 98%;
-    --foreground: 240 10% 4%;
+    /* Light Mode: Apple-Inspired Clean */
+    --background: 0 0% 100%;
+    /* Pure white */
+    --foreground: 0 0% 10%;
+    /* Near black */
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 4%;
+    /* Pure white cards */
+    --card-foreground: 0 0% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 4%;
+    --popover-foreground: 0 0% 10%;
     --primary: 262 80% 50%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 240 5% 96%;
-    --secondary-foreground: 240 6% 10%;
-    --muted: 240 5% 96%;
-    --muted-foreground: 240 4% 46%;
-    --accent: 262 50% 96%;
-    --accent-foreground: 262 80% 50%;
+    /* Keep purple accent */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    /* Light gray */
+    --secondary-foreground: 0 0% 10%;
+    --muted: 0 0% 96%;
+    /* Subtle gray */
+    --muted-foreground: 0 0% 45%;
+    /* Medium gray */
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 10%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 6% 90%;
-    --input: 240 6% 90%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 92%;
+    /* Soft borders */
+    --input: 0 0% 96%;
     --ring: 262 80% 50%;
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+    /* Slightly larger radius
   }
 
   .dark {
@@ -73,7 +82,36 @@
   h4,
   h5,
   h6 {
-    @apply font-heading tracking-tight;
+    @apply font-heading;
+  }
+
+  /* Apple-Style Typography Scale */
+  h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  h4 {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
   }
 }
 
@@ -163,21 +201,42 @@
     background-clip: text;
   }
 
-  .animate-gradient {
-    animation: gradient 15s ease infinite;
+  /* Apple-Style Shadow System */
+  .shadow-apple-sm {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04),
+      0 1px 2px rgba(0, 0, 0, 0.06);
   }
 
-  .animate-float {
-    animation: float 3s ease-in-out infinite;
+  .shadow-apple-md {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06),
+      0 2px 4px rgba(0, 0, 0, 0.08);
   }
 
-  .animate-glow {
-    animation: glow 2s ease-in-out infinite;
+  .shadow-apple-lg {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08),
+      0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
-  .animate-shimmer {
-    animation: shimmer 2s linear infinite;
+  .shadow-apple-xl {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1),
+      0 6px 12px rgba(0, 0, 0, 0.12);
   }
+}
+
+.animate-gradient {
+  animation: gradient 15s ease infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s linear infinite;
 }
 
 /* Reduced Motion Support */
