@@ -16,6 +16,10 @@ interface ScrollProgressBarProps {
  * @example
  * <ScrollProgressBar color="hsl(var(--primary))" />
  */
+/**
+ * ScrollProgressBar component
+ * Displays a thin progress bar at the top of the viewport reflecting the scroll position.
+ */
 export function ScrollProgressBar({
     className = "",
     color = "hsl(var(--primary))",
