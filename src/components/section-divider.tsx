@@ -16,6 +16,11 @@ interface SectionDividerProps {
  * @example
  * <SectionDivider gradient />
  */
+/**
+ * SectionDivider component
+ * A subtle horizontal divider used to separate different sections of the page.
+ * Supports an optional gradient effect.
+ */
 export function SectionDivider({
     className = "",
     gradient = false,
