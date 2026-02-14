@@ -33,7 +33,7 @@ export default function Page() {
 
       <section id="hero" className="relative w-full min-h-[60vh] flex items-center justify-center">
         {/* Retro Grid Background */}
-        <RetroGrid className="z-0" />
+        <RetroGrid className="z-0" lightLineColor="#e5e5e5" darkLineColor="#262626" />
 
         {/* Animated gradient partially visible */}
         <AnimatedGradient className="absolute inset-0 -z-10 opacity-30 blur-[100px]" />
@@ -319,7 +319,7 @@ export default function Page() {
               </div>
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY * 17}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="flex flex-col gap-4 max-w-3xl mx-auto">
                 {DATA.hackathons.map((project, id) => (
                   <HackathonCard
                     key={project.title + project.dates}
@@ -334,6 +334,27 @@ export default function Page() {
               </div>
             </BlurFade>
           </div>
+        </section>
+
+        {/* Highlighted Project - Custom Design */}
+        <section id="highlight" className="py-12">
+          <BlurFade delay={BLUR_FADE_DELAY * 13}>
+            <div className="relative group overflow-hidden rounded-2xl bg-[#0D0D0D] border border-white/5 p-8 max-w-2xl mx-auto text-center shadow-2xl">
+              {/* Gradient Glow Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 via-purple-500/10 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+
+              <div className="relative z-10 flex flex-col items-center justify-center gap-6">
+                <p className="text-base sm:text-lg text-muted-foreground max-w-lg font-mono leading-relaxed">
+                  Constantly exploring new technologies like Monad, Solana, and AI Agents to build decentralized applications that solve real-world problems.
+                </p>
+                <Link href="#contact">
+                  <Button className="font-bold text-base px-8 py-6 rounded-md bg-[#FF4F00] hover:bg-[#FF4F00]/90 text-white shadow-lg hover:shadow-orange-500/20 transition-all">
+                    Let&apos;s Build Together
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </BlurFade>
         </section>
 
         <section id="contact">
@@ -373,6 +394,6 @@ export default function Page() {
           </div>
         </section>
       </div>
-    </main>
+    </main >
   );
 }
