@@ -4,19 +4,18 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import { Cinzel, Manrope } from "next/font/google";
+import { Playfair_Display, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const fontHeading = Cinzel({
+const fontHeading = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-heading",
 });
 
-const fontBody = Manrope({
+const fontBody = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-sans",
 });
-
 export const metadata: Metadata = {
   metadataBase: new URL(DATA.url),
   title: {
@@ -52,7 +51,6 @@ export const metadata: Metadata = {
     yandex: "",
   },
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
