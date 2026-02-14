@@ -2,9 +2,11 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 interface Props {
   title: string;
@@ -27,80 +29,68 @@ export function HackathonCard({
   image,
   links,
 }: Props) {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <motion.li
-      className="relative ml-10 py-4"
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.5 }}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      viewport={{ once: true }}
+      onClick={() => setIsOpen(!isOpen)}
+      className="cursor-pointer group relative overflow-hidden rounded-xl border bg-card hover:bg-muted/50 transition-colors"
     >
-      <motion.div
-        className="absolute -left-16 top-2 flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-full"
-        whileHover={{ scale: 1.1, rotate: 5 }}
-        transition={{ duration: 0.3 }}
-      >
-        <Avatar className="border size-12 m-auto ring-2 ring-primary/20 transition-all duration-300 hover:ring-primary/50">
-          <AvatarImage src={image} alt={title} className="object-contain" />
-          <AvatarFallback>{title[0]}</AvatarFallback>
-        </Avatar>
-      </motion.div>
+      <div className="flex items-center justify-between p-4">
+        <div className="flex items-center gap-4">
+          <Avatar className="size-10 border bg-muted">
+            <AvatarImage src={image} alt={title} className="object-contain" />
+            <AvatarFallback>{title[0]}</AvatarFallback>
+          </Avatar>
+          <div className="flex flex-col">
+            <h3 className="font-semibold text-base sm:text-lg leading-none group-hover:text-primary transition-colors">
+              {title}
+            </h3>
+            <div className="flex items-center gap-2 text-xs text-muted-foreground mt-1">
+              <span>{dates}</span>
+              <span>•</span>
+              <span>{location}</span>
+            </div>
+          </div>
+        </div>
+        <div className="text-muted-foreground">
+          {isOpen ? <ChevronUp className="size-4" /> : <ChevronDown className="size-4" />}
+        </div>
+      </div>
 
-      <motion.div
-        className="flex flex-1 flex-col justify-start gap-1 p-4 rounded-lg transition-all duration-300"
-        animate={
-          isHovered
-            ? {
-              backgroundColor: "rgba(139, 92, 246, 0.05)",
-              borderColor: "rgba(139, 92, 246, 0.3)",
-            }
-            : {}
-        }
-        style={{
-          border: "1px solid transparent",
-        }}
-      >
-        {dates && (
-          <time className="text-xs text-muted-foreground font-medium">
-            {dates}
-          </time>
-        )}
-        <h2 className="font-semibold leading-none group-hover:text-primary transition-colors duration-300">
-          {title}
-        </h2>
-        {location && (
-          <p className="text-sm text-muted-foreground">{location}</p>
-        )}
-        {description && (
-          <span className="prose dark:prose-invert text-sm text-muted-foreground">
-            {description}
-          </span>
-        )}
-
-        {links && links.length > 0 && (
+      <AnimatePresence>
+        {isOpen && (
           <motion.div
-            className="mt-2 flex flex-row flex-wrap items-start gap-2"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden"
           >
-            {links?.map((link, idx) => (
-              <Link href={link.href} key={idx}>
-                <Badge
-                  title={link.title}
-                  className="flex gap-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 hover:shadow-glow-sm"
-                >
-                  {link.icon}
-                  {link.title}
-                </Badge>
-              </Link>
-            ))}
+            <div className="p-4 pt-0 border-t bg-muted/20">
+              <p className="prose dark:prose-invert text-sm text-muted-foreground mb-4">
+                {description}
+              </p>
+              {links && links.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {links.map((link, idx) => (
+                    <Link href={link.href} key={idx} onClick={(e) => e.stopPropagation()}>
+                      <Badge variant="secondary" className="flex gap-2">
+                        {link.icon}
+                        {link.title}
+                      </Badge>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           </motion.div>
         )}
-      </motion.div>
-    </motion.li>
+      </AnimatePresence>
+    </motion.div>
   );
 }
