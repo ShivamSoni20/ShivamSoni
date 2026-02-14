@@ -60,7 +60,7 @@ export function ProjectCard({
           onHoverEnd={() => setIsHovered(false)}
         >
           {/* Image/Video Container */}
-          <div className="relative overflow-hidden aspect-video bg-muted">
+          <div className="relative overflow-hidden aspect-video bg-muted/50">
             {video && (
               <motion.video
                 src={video}
@@ -87,6 +87,18 @@ export function ProjectCard({
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </motion.div>
+            )}
+            {!image && !video && (
+              <div className="flex h-full w-full items-center justify-center bg-secondary/50">
+                {/* Dot Pattern */}
+                <div className="absolute inset-0 opacity-20"
+                  style={{ backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)', backgroundSize: '16px 16px' }}>
+                </div>
+                {/* Icon */}
+                <div className="relative z-10 p-4 rounded-full bg-background shadow-sm border">
+                  <span className="text-4xl">🚀</span>
+                </div>
+              </div>
             )}
           </div>
 
